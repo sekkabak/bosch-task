@@ -1,0 +1,11 @@
+img {
+    width: 200px;
+    height: 200px;
+}
+.mat-list-item {
+    height: auto;
+    padding: 10px;
+}
+.icon {
+    margin-right: 20px;
+}

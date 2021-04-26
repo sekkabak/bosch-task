@@ -1,0 +1,66 @@
+<!-- 
+Create simple application in JavaScript and HTML which will fetch the data from API and show it
+on page. Please use promises. You can use one of the available free API e.g. weather or financial
+API.
+-->
+<html>
+    <head>
+        <title>1😀</title>
+    </head>
+<body>
+
+    <form id="form">
+        <Label for="cityName">Type city name and I will show weather 😀</Label>
+        <input type="text" id="cityName" />
+        <input type="submit" value="Send"/>
+    </form>
+
+    <div id="res"></div>
+
+    <script>
+        const key = "b1ff9e4593ed37feb3f8476fe1ba6890";
+        const link = "https://api.openweathermap.org/data/2.5/weather";
+
+        document.getElementById("form").addEventListener("submit", submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+            getWeather(document.getElementById("cityName").value)
+                .then(function (data) {
+                    // trick :D
+                    let res = data.split("<body>")[1].split("</body>")[0];
+                    document.getElementById("res").innerHTML = res;
+                })
+                .catch(function (data) {
+                    console.error(data.status, data.response);
+                })
+        }
+
+        function getWeather(city) {
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", link + "?mode=html&q=" + city + "&appid=" + key);
+                xhr.onload = function () {
+                    if (this.status == 200) {
+                        resolve(xhr.response);
+                    }
+                    else {
+                        reject({
+                            status: this.status,
+                            response: this.response
+                        })
+                    }
+                };
+                xhr.onerror = function () {
+                    reject({
+                        status: this.status,
+                        response: this.response
+                    })
+                };
+                xhr.send();
+            });
+        }
+    </script>
+</body>
+
+</html>

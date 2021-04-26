@@ -1,0 +1,8 @@
+<mat-card class="example-card">
+    <h2 class="example-card-title">Avaliable Heroes</h2>
+    <mat-card-content>
+        <mat-list>
+            <app-heroes-record *ngFor="let heroe of heroes" id={{heroe.id}} name="{{heroe.name}}" ability="{{heroe.ability}}" image="{{heroe.image}}"></app-heroes-record>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Thor",
+    "ability": "God of thunder and lightning",
+    "image": "001.jpg"
+  },
+  {
+    "id": 2,
+    "name": "IronMan",
+    "ability": "Smart guy with robotic suit",
+    "image": "002.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Hulk",
+    "ability": "Super strength",
+    "image": "003.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Spider Man",
+    "ability": "Can walk on the ceiling",
+    "image": "004.jpg"
+  }
+]
